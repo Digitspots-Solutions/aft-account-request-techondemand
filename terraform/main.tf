@@ -55,3 +55,33 @@ module "berrycbakeryandsalad-com-admin" {
 
   account_customizations_name = "sandbox"
 }
+
+module "deoracleinvestment-com-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@deoracleinvestment.com"
+    AccountName               = "deoracleinvestment-admin"
+    ManagedOrganizationalUnit = "Websites Workload (ou-jpw6-2gskotwy)"
+    SSOUserEmail              = "admin@deoracleinvestment.com"
+    SSOUserFirstName          = "deoracleinvestment"
+    SSOUserLastName           = "deoracleinvestment"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-03-13T02:01:13.084932"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
