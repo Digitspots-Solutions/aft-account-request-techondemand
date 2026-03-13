@@ -295,3 +295,33 @@ module "markethives-org-admin" {
 
   account_customizations_name = "sandbox"
 }
+
+module "queenstarcomputerserviceandenterprises-com-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@queenstarcomputerserviceandenterprises.com"
+    AccountName               = "queenstarcomputerserviceandenterprises-admin"
+    ManagedOrganizationalUnit = "Websites Workload (ou-jpw6-2gskotwy)"
+    SSOUserEmail              = "admin@queenstarcomputerserviceandenterprises.com"
+    SSOUserFirstName          = "queenstarcomputerserviceandenterprises"
+    SSOUserLastName           = "queenstarcomputerserviceandenterprises"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-03-13T02:07:35.517043"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
