@@ -385,3 +385,33 @@ module "elohimposservice-com-admin" {
 
   account_customizations_name = "sandbox"
 }
+
+module "vikiniaenterprise-com-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@vikiniaenterprise.com"
+    AccountName               = "vikiniaenterprise-admin"
+    ManagedOrganizationalUnit = "Websites Workload (ou-jpw6-2gskotwy)"
+    SSOUserEmail              = "admin@vikiniaenterprise.com"
+    SSOUserFirstName          = "vikiniaenterprise"
+    SSOUserLastName           = "vikiniaenterprise"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-03-13T02:11:29.197785"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
