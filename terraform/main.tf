@@ -595,3 +595,33 @@ module "blossomagro-com-admin" {
 
   account_customizations_name = "sandbox"
 }
+
+module "odymonkez-com-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@odymonkez.com"
+    AccountName               = "odymonkez-admin"
+    ManagedOrganizationalUnit = "Websites Workload (ou-jpw6-2gskotwy)"
+    SSOUserEmail              = "admin@odymonkez.com"
+    SSOUserFirstName          = "odymonkez"
+    SSOUserLastName           = "odymonkez"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-03-13T02:16:07.730118"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
