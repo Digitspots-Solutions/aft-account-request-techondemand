@@ -565,3 +565,33 @@ module "gemmafashion-org-admin" {
 
   account_customizations_name = "sandbox"
 }
+
+module "blossomagro-com-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@blossomagro.com"
+    AccountName               = "blossomagro-admin"
+    ManagedOrganizationalUnit = "Websites Workload (ou-jpw6-2gskotwy)"
+    SSOUserEmail              = "admin@blossomagro.com"
+    SSOUserFirstName          = "blossomagro"
+    SSOUserLastName           = "blossomagro"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-03-13T02:15:32.001824"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
