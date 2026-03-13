@@ -205,3 +205,33 @@ module "oludolabank-com-admin" {
 
   account_customizations_name = "sandbox"
 }
+
+module "gracehavenhospitalityservices-com-admin" {
+  source = "./modules/aft-account-request"
+
+  control_tower_parameters = {
+    AccountEmail              = "admin@gracehavenhospitalityservices.com"
+    AccountName               = "gracehavenhospitalityservices-admin"
+    ManagedOrganizationalUnit = "Websites Workload (ou-jpw6-2gskotwy)"
+    SSOUserEmail              = "admin@gracehavenhospitalityservices.com"
+    SSOUserFirstName          = "gracehavenhospitalityservices"
+    SSOUserLastName           = "gracehavenhospitalityservices"
+  }
+
+  account_tags = {
+    "Opportunity" = "true"
+    "ManagedBy" = "OpportunityPortal"
+    "ProvisioningRetry" = "2026-03-13T02:05:26.848149"
+  }
+
+  change_management_parameters = {
+    change_requested_by = "Opportunity Portal"
+    change_reason       = "Self-service account creation"
+  }
+
+  custom_fields = {
+    group = "non-prod"
+  }
+
+  account_customizations_name = "sandbox"
+}
